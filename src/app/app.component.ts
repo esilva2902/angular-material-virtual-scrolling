@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ScrollDispatcher, CdkScrollable } from '@angular/cdk/scrolling';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
 
@@ -15,9 +16,14 @@ export class AppComponent {
   fakeDbData$: Observable<any>;
 
   constructor(
+    private scrollDispatcher: ScrollDispatcher,
     private fakeDbService: FakeDbService) { }
 
   ngOnInit() {
+    this.scrollDispatcher.scrolled().subscribe((value: CdkScrollable) => {
+      console.log(`ScrollDispatcher.scrolled ==> `, value);
+    });
+
     this.fakeDbData$ = this.fakeDbService.getEmployees(1, 100000).pipe(
       map((entries: any[]) => {
         console.log(`Total entries: ${entries.length}`);

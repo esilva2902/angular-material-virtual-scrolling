@@ -1,5 +1,16 @@
-<div *ngFor="let entry of fakeDbData$ | async as entries;">
-  {{ entry.employeeId }}
+<div class="wrapper">
 
+  <!-- <fake-row *ngFor="let entry of fakeDbData$ | async as entries;" [entry]="entry"></fake-row> -->
+
+  <cdk-virtual-scroll-viewport [itemSize]="32" class="virtual-wrapper">
+    <fake-row *cdkVirtualFor="let entry of fakeDbData$ | async as entries; index as i;" 
+      [row-number]="i"
+      [entry]="entry">
+    </fake-row>
+    
+  </cdk-virtual-scroll-viewport>
+    
 </div>
+
+  
 

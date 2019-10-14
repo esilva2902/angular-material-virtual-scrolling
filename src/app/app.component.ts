@@ -18,7 +18,7 @@ export class AppComponent {
     private fakeDbService: FakeDbService) { }
 
   ngOnInit() {
-    this.fakeDbData$ = this.fakeDbService.getEmployees(116, 30).pipe(
+    this.fakeDbData$ = this.fakeDbService.getEmployees(1, 100000).pipe(
       map((entries: any[]) => {
         console.log(`Total entries: ${entries.length}`);
   

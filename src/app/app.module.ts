@@ -8,11 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { FakeRowComponent } from './fake-row/fake-row.component';
+import { FakeCompoundRowComponent } from './fake-compound-row/fake-compound-row.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FakeRowComponent
+    FakeRowComponent,
+    FakeCompoundRowComponent
   ],
   imports: [
     BrowserModule,

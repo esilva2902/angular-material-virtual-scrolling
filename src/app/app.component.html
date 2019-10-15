@@ -9,6 +9,14 @@
     </fake-row>
     
   </cdk-virtual-scroll-viewport>
+
+  <cdk-virtual-scroll-viewport [itemSize]="62" class="virtual-wrapper">
+    <fake-compound-row *cdkVirtualFor="let entry of fakeDbData$ | async as entries; index as i;" 
+      [row-number]="i"
+      [entry]="entry">
+    </fake-compound-row>
+    
+  </cdk-virtual-scroll-viewport>
     
 </div>
 
